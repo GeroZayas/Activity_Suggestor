@@ -37,4 +37,3 @@ async def index(request: Request):
 @app.get("/activity", response_class=HTMLResponse)
 async def suggested_activity(request: Request):
     return RedirectResponse(url="http://www.boredapi.com/api/activity/")
-
