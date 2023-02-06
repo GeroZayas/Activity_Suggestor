@@ -4,9 +4,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests
 
-
-
-
 # ----------------------------------------------------------------
 # FASTAPI APP
 app = FastAPI()
@@ -15,7 +12,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 templates = Jinja2Templates(directory="templates")
-    
+
 
 def get_activity():
     activity_request = requests.get("http://www.boredapi.com/api/activity/")
@@ -40,3 +37,4 @@ async def index(request: Request):
 @app.get("/activity", response_class=HTMLResponse)
 async def suggested_activity(request: Request):
     return RedirectResponse(url="http://www.boredapi.com/api/activity/")
+
