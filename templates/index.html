@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/styles.css') }}"
+    />
     <title>Gero FastAPI</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Hello Section -->
     <h1>Hello, let's get active!</h1>
     <p>Let me suggest you some activity</p>
     <p><b>DO NOT BE LAZY</b> and don't let yourself get bored!</p>
 
     <!-- button -->
-    <button id="new-activity-btn" class="" role="button" onClick="window.location.reload();" >New activity</button>
+    <button
+      id="new-activity-btn"
+      class=""
+      role="button"
+      onClick="window.location.reload();"
+    >
+      New activity
+    </button>
 
     <!-- new activity -->
     <div class="new-activity">
-        <h3 style="color: brown;" id="suggested-activity">{{activity}}</h3>
+      <h3 style="color: brown" id="suggested-activity">{{activity}}</h3>
     </div>
 
     <!-- image -->
-    <img style="border-radius: 10px;" src="{{image}}" alt="">
+    <img style="border-radius: 10px" src="{{image}}" alt="" />
+
+    <div style="font-size: medium">
+      Made with ❤️ by <a href="https://www.gerozayas.com"> Gero Zayas</a>
+    </div>
 
     <script src="{{ url_for('static', path='index.js') }}"></script>
-</body>
-
+  </body>
 </html>
