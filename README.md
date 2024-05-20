@@ -23,3 +23,31 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
+### Running the Application
+
+Run the application:
+
+```bash
+uvicorn main:app --reload
+```
+
+By default, the application will start on `http://127.0.0.1:8000`.
+
+## Usage
+
+Navigate to `http://127.0.0.1:8000` in your web browser to view the application. The homepage will display a randomly selected activity suggestion fetched from the Bored API.
+
+## Contributing
+
+Contributions are welcome Feel free to submit pull requests or open issues if you encounter any problems.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+Gero Zayas - Full Stack Developer  
+[GitHub](https://github.com/gerozayas)  
+Email: gerozayas@gmail.com
