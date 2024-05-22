@@ -6,39 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ url_for('static', path='css/styles.css') }}"
+      href="https://cdn.jsdelivr.net/npm/bulma@latest/css/bulma.min.css"
     />
     <title>Gero FastAPI</title>
   </head>
 
-  <body>
+  <body class="p-2">
     <!-- Hello Section -->
-    <h1>Hello, let's get active!</h1>
-    <p>Let me suggest you some activity</p>
-    <p><b>DO NOT BE LAZY</b> and don't let yourself get bored!</p>
+    <section class="section has-text-centered">
+      <div class="container">
+        <h1 class="title is-2">Hello, let's get active!</h1>
+        <p class="subtitle is-6">Let me suggest you some activity</p>
+        <p class="has-text-weight-bold has-text-centered">DO NOT BE LAZY</p>
+        and don't let yourself get bored!
+        <br />
+        <!-- button -->
+        <br />
+        <button
+          id="new-activity-btn"
+          class="button is-primary"
+          role="button"
+          onClick="window.location.reload();"
+        >
+          New activity
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3 class="title is-2" style="color: brown" id="suggested-activity">
+            {{activity}}
+          </h3>
+        </div>
+      </div>
+      <!-- image -->
 
-    <!-- button -->
-    <button
-      id="new-activity-btn"
-      class=""
-      role="button"
-      onClick="window.location.reload();"
-    >
-      New activity
-    </button>
+      <figure class="">
+        <img
+          src="{{image}}"
+          alt=""
+          style="
+            border-radius: 10px;
+            object-fit: cover;
+            width: 40%;
+            height: auto;
+          "
+        />
+      </figure>
+    </section>
 
-    <!-- new activity -->
-    <div class="new-activity">
-      <h3 style="color: brown" id="suggested-activity">{{activity}}</h3>
-    </div>
-
-    <!-- image -->
-    <!-- FIXME: MAke IMAGE Responsive!! -->
-    <img style="border-radius: 10px" src="{{image}}" alt="" />
-
-    <div style="font-size: medium">
-      Made with ❤️ by <a href="https://www.gerozayas.com"> Gero Zayas</a>
-    </div>
+    <footer class="footer has-text-centered">
+      Made with ❤️ by <a href="https://www.gerozayas.com">Gero Zayas</a>
+    </footer>
 
     <script src="{{ url_for('static', path='index.js') }}"></script>
   </body>
