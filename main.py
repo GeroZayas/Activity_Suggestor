@@ -13,11 +13,34 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
+END_POINT = "http://www.boredapi.com/api/activity/"
+
+
+# def get_activity():
+#     activity_request = requests.get(END_POINT)
+#     activity = activity_request.json()["activity"]
+#     return activity
+
 
 def get_activity():
-    activity_request = requests.get("http://www.boredapi.com/api/activity/")
-    activity = activity_request.json()["activity"]
-    return activity
+    try:
+        activity_request = requests.get(END_POINT)
+        # Check if the response status code indicates success (e.g., 200 OK)
+        if activity_request.status_code == 200:
+            # Attempt to parse the JSON response
+            activity_data = activity_request.json()
+            # Ensure the 'activity' key exists in the JSON data
+            if "activity" in activity_data:
+                return activity_data["activity"]
+            else:
+                print("No 'activity' field found in the response.")
+                return None
+        else:
+            print(f"Request failed with status code {activity_request.status_code}.")
+            return None
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+        return None
 
 
 @app.get("/", response_class=HTMLResponse)
