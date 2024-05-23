@@ -3,6 +3,8 @@ from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests
+import csv
+import random
 
 # ----------------------------------------------------------------
 # FASTAPI APP
@@ -22,22 +24,36 @@ END_POINT = "http://www.boredapi.com/api/activity/"
 #     return activity
 
 
+# Assuming get_random_activity_from_csv is defined elsewhere in your code
+def get_random_activity_from_csv(file_path="./static/assets/activities_list.csv"):
+    activities = []
+    with open(file_path, newline="") as csvfile:
+        reader = csv.reader(csvfile)
+        next(reader)  # Skip header row if present
+        for row in reader:
+            activities.append(
+                row[1]
+            )  # Assuming the first column contains the activity names
+    return random.choice(activities) if activities else None
+
+
 def get_activity():
     try:
         activity_request = requests.get(END_POINT)
-        # Check if the response status code indicates success (e.g., 200 OK)
         if activity_request.status_code == 200:
-            # Attempt to parse the JSON response
             activity_data = activity_request.json()
-            # Ensure the 'activity' key exists in the JSON data
             if "activity" in activity_data:
                 return activity_data["activity"]
             else:
                 print("No 'activity' field found in the response.")
                 return None
         else:
-            print(f"Request failed with status code {activity_request.status_code}.")
-            return None
+            # If the API request fails or doesn't provide an activity, try getting a random activity from CSV
+            activity = get_random_activity_from_csv()
+            if activity is None:
+                print("Failed to retrieve activity from both sources.")
+                return None
+            return activity
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
         return None
