@@ -1,16 +1,20 @@
-# Bored API Activity Suggester
+# 🎲 Activity Suggester
 
-This project is a simple FastAPI application designed to suggest activities for users who might be feeling bored. It leverages the Bored API to fetch random activity suggestions and displays them on a webpage.
+This project is a simple **FastAPI** application designed to suggest activities for users who might be feeling bored. It leverages the **Bored API** (and some other activity lists) to fetch random activity suggestions and displays them on a webpage.
 
-## Getting Started
+## 🌍 Online Version
+
+Check out the online version of this web app here: [https://activitysuggestor.up.railway.app/](https://activitysuggestor.up.railway.app/) 🎉✨
+
+## 🚀 Getting Started
 
 To run this application locally, follow these steps:
 
-### Prerequisites
+### 🛠️ Prerequisites
 
 Ensure you have Python installed on your system. This project requires Python 3.6 or higher.
 
-### Installation
+### 📥 Installation
 
 Clone the repository:
 
@@ -24,7 +28,7 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-### Running the Application
+### ▶️ Running the Application
 
 Run the application:
 
@@ -34,19 +38,19 @@ uvicorn main:app --reload
 
 By default, the application will start on `http://127.0.0.1:8000`.
 
-## Usage
+## 🌐 Usage
 
 Navigate to `http://127.0.0.1:8000` in your web browser to view the application. The homepage will display a randomly selected activity suggestion fetched from the Bored API.
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome Feel free to submit pull requests or open issues if you encounter any problems.
+Contributions are welcome! Feel free to submit pull requests or open issues if you encounter any problems.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License.
 
-## Contact
+## 📧 Contact
 
 Gero Zayas - Full Stack Developer  
 [GitHub](https://github.com/gerozayas)  
