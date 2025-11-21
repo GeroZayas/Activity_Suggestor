@@ -2,10 +2,6 @@
 
 This project is a simple **FastAPI** application designed to suggest activities for users who might be feeling bored. It leverages the **Bored API** (and some other activity lists) to fetch random activity suggestions and displays them on a webpage.
 
-## 🌍 Online Version
-
-Check out the online version of this web app here: [https://activitysuggestor.up.railway.app/](https://activitysuggestor.up.railway.app/) 🎉✨
-
 ## 🚀 Getting Started
 
 To run this application locally, follow these steps:
